@@ -64,23 +64,42 @@ class Board  extends Component {
           this.setState({btns:btns ,xIsNext:xIsNext} )
       };
 
+      checkArrayFull(){
+          for(let i = 0 ; i<9 ; i++){
+               if(this.state.btns[i] == null)
+                    return false;
+            }
+            return true;
+      }
+
+
     render() { 
        
         let status = this.calculateWinner(this.state.btns);
-        if(status)
+        var colorM ;
+        if(status){
             status = "Player " + status + " win the match";
-        else
-             status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+            colorM = "status winStatus";
+        }
+        else if (this.checkArrayFull()){
+            status = 'Its a tie!!';
+            colorM = "status tieStatus";
+        }
+        else{
+            status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+            colorM = "status playStatus";
+        }
+             
         return (
             <Container maxWidth="sm" className="container">
                 <Header/>
-
-                <div className="status">
+                
+                <div className={colorM}>
                     <Typography variant="h6" gutterBottom>
                          {status} 
                     </Typography> 
                 </div>
-                
+
                 <div className="row">
                     {this.renderBtns(0)}
                     {this.renderBtns(1)} 
