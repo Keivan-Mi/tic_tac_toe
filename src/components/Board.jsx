@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
+import {Container , Button,Typography } from "@material-ui/core"
+import RotateLeftIcon from '@material-ui/icons/RotateLeft';
+import './style.css';
 
 import Btn from './Btn'
+import Header from './Header'
 
 class Board  extends Component {
     constructor(props) {
@@ -68,25 +72,35 @@ class Board  extends Component {
         else
              status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
         return (
-            <div>
-                <button onClick={()=>{this.resetGame()}}> Reset </button>
-                <div className="status">{status}</div>
-                <div>
+            <Container maxWidth="sm" className="container">
+                <Header/>
+
+                <div className="status">
+                    <Typography variant="h6" gutterBottom>
+                         {status} 
+                    </Typography> 
+                </div>
+                
+                <div className="row">
                     {this.renderBtns(0)}
                     {this.renderBtns(1)} 
                     {this.renderBtns(2)}
                 </div>
-                <div>
+                <div className="row">
                     {this.renderBtns(3)}
                     {this.renderBtns(4)} 
                     {this.renderBtns(5)}
                 </div>
-                <div>
+                <div className="row">
                     {this.renderBtns(6)}
                     {this.renderBtns(7)} 
                     {this.renderBtns(8)}
                 </div>
-          </div>
+
+                <Button className="deleteBtn" variant="contained" color="secondary" startIcon={<RotateLeftIcon />} onClick={()=>{this.resetGame()}}>
+                    Reset
+                </Button>
+          </Container>
         );
     }
 }

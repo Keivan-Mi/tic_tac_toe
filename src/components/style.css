@@ -1,0 +1,33 @@
+.Header {
+    color: rgb(3, 0, 0) !important;
+    margin-top: 20% !important;
+    margin-bottom: 10% !important;
+    text-align: center !important;
+}
+
+.container{
+    text-align: center !important;
+    width:100%;
+}
+
+.row{
+    margin: 5px;
+}
+
+.deleteBtn{
+    width:58%;
+}
+
+.status{
+   background-color :#1565C0;
+   color: white;
+   width:58%;
+   margin:auto;
+   border-radius: 5px;
+   padding: 20px 0 20px 0;
+   margin-bottom: 20px; 
+   -webkit-box-shadow: 0px 20px 0px -10px #FFFFFF, 0px -20px 0px -10px #FFFFFF, 20px 0px 0px -10px #FFFFFF, -20px 0px 0px -10px #FFFFFF, 4px 5px 20px 8px rgba(70,149,255,0.81); 
+   box-shadow: 0px 20px 0px -10px #FFFFFF, 0px -20px 0px -10px #FFFFFF, 20px 0px 0px -10px #FFFFFF, -20px 0px 0px -10px #FFFFFF, 4px 5px 20px 8px rgba(70,149,255,0.81);
+   
+}
+
