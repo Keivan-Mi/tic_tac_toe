@@ -14,6 +14,7 @@ class Board extends Component {
   //Constructor of this class
   constructor(props) {
     super(props);
+
     this.state = {
       /*
        *btns    : 9 squares of the app
@@ -108,6 +109,120 @@ class Board extends Component {
     return true;
   }
 
+  checkArrayEmpty() {
+    for (let i = 0; i < 9; i++) {
+      if (this.state.btns[i] != null) return false;
+    }
+    return true;
+  }
+  //------------------------------------
+  //Write an AI using minMax
+  aIMove() {
+    //Copy my state
+    var squares = this.state.btns.slice();
+
+    //Here is for the first move (random place at first)
+    if (this.checkArrayEmpty()) {
+      const ran = Math.floor(Math.random() * 10) % 9;
+      squares[ran] = "X";
+      //Update state
+      this.setState({
+        btns: squares,
+        xIsNext: !this.state.xIsNext,
+      });
+    }
+    //Here I use the minimax algorithm for finding the best move
+    else {
+      const AI = "X";
+      const player = "O";
+
+      var bestVal = -1000;
+      var move = -1;
+      var value;
+
+      for (let i = 0; i < 9; i++) {
+        if (squares[i] === null) {
+          squares[i] = AI;
+          value = this.minMax(squares, 0, false, AI, player);
+          squares[i] = null;
+          if (value > bestVal) {
+            bestVal = value;
+            move = i;
+          }
+        }
+      }
+      //AI move
+      squares[move] = AI;
+      this.setState({
+        btns: squares,
+        xIsNext: !this.state.xIsNext,
+      });
+    }
+  }
+  //------------------------------------
+  //MinMax algorithm for finding the best move
+  minMax(squares, depth, isMax, AI, player) {
+    //Copy my state
+    const status = this.calculateWinner(squares);
+
+    //The termination conditions for recursive minimax function
+    if (status) {
+      if (status === player) {
+        return -10;
+      } else {
+        return +10;
+      }
+    } else {
+      if (this.checkArrayFull()) return 0;
+    }
+
+    //define variable for storing data
+    var value;
+
+    //Maximize node
+    if (isMax) {
+      var maxVal = -11;
+      for (let i = 0; i < 9; i++) {
+        if (squares[i] === null) {
+          squares[i] = AI;
+          value = this.minMax(squares, depth + 1, !isMax, AI, player);
+          squares[i] = null;
+          if (value > maxVal) {
+            maxVal = value;
+          }
+        }
+      }
+      return maxVal;
+    }
+    //Minimize node
+    else {
+      var minVal = 11;
+      for (let i = 0; i < 9; i++) {
+        if (squares[i] === null) {
+          squares[i] = player;
+          value = this.minMax(squares, depth + 1, !isMax, AI, player);
+          squares[i] = null;
+          if (value < minVal) {
+            minVal = value;
+          }
+        }
+      }
+      return minVal;
+    }
+  }
+
+  //------------------------------------
+  //Call the aIMove at first
+  componentDidMount() {
+    this.aIMove();
+  }
+
+  //Call the aIMove after each render(If AI turns)
+  componentDidUpdate() {
+    const a = this.state.xIsNext ? "X" : "O";
+    if (a === "X") this.aIMove();
+  }
+
   //------------------------------------
   render() {
     //------------------------------------
@@ -119,13 +234,14 @@ class Board extends Component {
     let status = this.calculateWinner(this.state.btns);
     var colorM;
     if (status) {
-      status = "Player " + status + " win the match";
+      if (status === "X") status = "AI win the match";
+      else status = "You win the match";
       colorM = "status winStatus";
     } else if (this.checkArrayFull()) {
       status = "Its a tie!!";
       colorM = "status tieStatus";
     } else {
-      status = "Next player: " + (this.state.xIsNext ? "X" : "O");
+      status = "Your turns";
       colorM = "status playStatus";
     }
 
