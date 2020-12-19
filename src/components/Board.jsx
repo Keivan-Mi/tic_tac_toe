@@ -1,36 +1,63 @@
 import React, { Component } from "react";
 import { Container, Button, Typography } from "@material-ui/core";
 import RotateLeftIcon from "@material-ui/icons/RotateLeft";
+
+//Import my CSS style file
 import "./style.css";
 
+//Import my components
 import Btn from "./Btn";
 import Header from "./Header";
 
+//---------------------------------------------------------------------------------------------------------------------
 class Board extends Component {
+  //Constructor of this class
   constructor(props) {
     super(props);
     this.state = {
+      /*
+       *btns    : 9 squares of the app
+       *xIsNext : used for changing the turn
+       */
       btns: Array(9).fill(null),
       xIsNext: true,
     };
   }
 
+  //------------------------------------
+  /*Function that I used for handel clicks in Btn component
+   *Calling from renderBtns() when user push the button;
+   */
   handleClick(i) {
+    //Copy my btns array
     const btns = this.state.btns.slice();
+
+    //If the game has a winner or the user selects the full square, the app returns nothing!
     if (this.calculateWinner(btns) || btns[i]) return;
+
+    //Update status(put X or O)
     btns[i] = this.state.xIsNext ? "X" : "O";
+
+    //Update the actual state
     this.setState({
       btns: btns,
       xIsNext: !this.state.xIsNext,
     });
   }
 
+  //------------------------------------
+  /*Function that I used for creating btn component
+   *Calling from render();
+   */
   renderBtns(i) {
     return (
       <Btn value={this.state.btns[i]} onClick={() => this.handleClick(i)} />
     );
   }
 
+  //------------------------------------
+  /*This function determines whether the game is over or not
+   */
   calculateWinner(squares) {
     const lines = [
       [0, 1, 2],
@@ -55,15 +82,25 @@ class Board extends Component {
     return null;
   }
 
+  //------------------------------------
+  /*This function resets the game to its initial state
+   */
   resetGame() {
+    //Copy my state
     let btns = this.state.btns.slice();
     let xIsNext = this.state.xIsNext;
+
+    //Change value of my copy state
     btns.fill(null);
     xIsNext = true;
 
+    //Update the actual state
     this.setState({ btns: btns, xIsNext: xIsNext });
   }
 
+  //------------------------------------
+  /*This function checks that the array is full or not(check for tie situation)
+   */
   checkArrayFull() {
     for (let i = 0; i < 9; i++) {
       if (this.state.btns[i] == null) return false;
@@ -71,7 +108,14 @@ class Board extends Component {
     return true;
   }
 
+  //------------------------------------
   render() {
+    //------------------------------------
+    //Check status
+    /*status : null means the game hasn't a winner otherwise means the game is in a tie situation or has not been complete
+     *colorM : Used for changing the style of status(actually it contains the CSS classes name)
+     *
+     */
     let status = this.calculateWinner(this.state.btns);
     var colorM;
     if (status) {
@@ -85,6 +129,7 @@ class Board extends Component {
       colorM = "status playStatus";
     }
 
+    //Return components
     return (
       <Container maxWidth="sm" className="container">
         <Header />

@@ -1,7 +1,10 @@
+/*Change the color of root*/
 body {
   background-color: #1a237e;
 }
 
+/*-------------------------------------------------------------------------------*/
+/*style the header (Tic tac Toe section )*/
 .Header {
   color: rgb(255, 255, 255) !important;
   margin-top: 20% !important;
@@ -10,20 +13,30 @@ body {
   font-size: 60px !important;
 }
 
+.typography {
+  font-size: 20px !important;
+}
+
+/*-------------------------------------------------------------------------------*/
+/*container of the app*/
 .container {
   text-align: center !important;
   width: 100%;
   background-color: #1a237e;
 }
 
+/*Change the space between each row*/
 .row {
   margin: 5px;
 }
 
+/*Style the reset button*/
 .deleteBtn {
   width: 58%;
 }
 
+/*-------------------------------------------------------------------------------*/
+/*Status section*/
 .status {
   color: white;
   width: 58%;
@@ -33,10 +46,38 @@ body {
   margin-bottom: 20px;
 }
 
-.typography {
-  font-size: 20px !important;
+.playStatus {
+  background-color: #1565c0;
+  -webkit-box-shadow: 0px 20px 0px -10px #ffffff, 0px -20px 0px -10px #ffffff,
+    20px 0px 0px -10px #ffffff, -20px 0px 0px -10px #ffffff,
+    4px 5px 20px 8px rgba(70, 149, 255, 0.81);
+  box-shadow: 0px 20px 0px -10px #ffffff, 0px -20px 0px -10px #ffffff,
+    20px 0px 0px -10px #ffffff, -20px 0px 0px -10px #ffffff,
+    4px 5px 20px 8px rgba(70, 149, 255, 0.81);
 }
 
+.winStatus {
+  background-color: #43a047;
+  -webkit-box-shadow: 0px 20px 0px -10px #ffffff, 0px -20px 0px -10px #ffffff,
+    20px 0px 0px -10px #ffffff, -20px 0px 0px -10px #ffffff,
+    4px 5px 20px 8px rgba(70, 149, 255, 0.81);
+  box-shadow: 0px 20px 0px -10px #ffffff, 0px -20px 0px -10px #ffffff,
+    20px 0px 0px -10px #ffffff, -20px 0px 0px -10px #ffffff,
+    4px 5px 20px 8px #43a047;
+}
+
+.tieStatus {
+  background-color: #f44336;
+  -webkit-box-shadow: 0px 20px 0px -10px #ffffff, 0px -20px 0px -10px #ffffff,
+    20px 0px 0px -10px #ffffff, -20px 0px 0px -10px #ffffff,
+    4px 5px 20px 8px rgba(70, 149, 255, 0.81);
+  box-shadow: 0px 20px 0px -10px #ffffff, 0px -20px 0px -10px #ffffff,
+    20px 0px 0px -10px #ffffff, -20px 0px 0px -10px #ffffff,
+    4px 5px 20px 8px #f44336;
+}
+
+/*-------------------------------------------------------------------------------*/
+/*Make it responsive*/
 @media screen and (max-width: 1280px) {
   .deleteBtn {
     width: 48%;
@@ -81,34 +122,4 @@ body {
   .status {
     width: 210px;
   }
-}
-
-.playStatus {
-  background-color: #1565c0;
-  -webkit-box-shadow: 0px 20px 0px -10px #ffffff, 0px -20px 0px -10px #ffffff,
-    20px 0px 0px -10px #ffffff, -20px 0px 0px -10px #ffffff,
-    4px 5px 20px 8px rgba(70, 149, 255, 0.81);
-  box-shadow: 0px 20px 0px -10px #ffffff, 0px -20px 0px -10px #ffffff,
-    20px 0px 0px -10px #ffffff, -20px 0px 0px -10px #ffffff,
-    4px 5px 20px 8px rgba(70, 149, 255, 0.81);
-}
-
-.winStatus {
-  background-color: #43a047;
-  -webkit-box-shadow: 0px 20px 0px -10px #ffffff, 0px -20px 0px -10px #ffffff,
-    20px 0px 0px -10px #ffffff, -20px 0px 0px -10px #ffffff,
-    4px 5px 20px 8px rgba(70, 149, 255, 0.81);
-  box-shadow: 0px 20px 0px -10px #ffffff, 0px -20px 0px -10px #ffffff,
-    20px 0px 0px -10px #ffffff, -20px 0px 0px -10px #ffffff,
-    4px 5px 20px 8px #43a047;
-}
-
-.tieStatus {
-  background-color: #f44336;
-  -webkit-box-shadow: 0px 20px 0px -10px #ffffff, 0px -20px 0px -10px #ffffff,
-    20px 0px 0px -10px #ffffff, -20px 0px 0px -10px #ffffff,
-    4px 5px 20px 8px rgba(70, 149, 255, 0.81);
-  box-shadow: 0px 20px 0px -10px #ffffff, 0px -20px 0px -10px #ffffff,
-    20px 0px 0px -10px #ffffff, -20px 0px 0px -10px #ffffff,
-    4px 5px 20px 8px #f44336;
 }

@@ -1,11 +1,13 @@
-import React, { Component } from "react";
 import { Button, makeStyles } from "@material-ui/core";
 import ResponsiveCssMaterialUi from "responsive-css-material-ui";
+
+//Import my CSS style file
 import "./style.css";
 
-//make Css style
+//---------------------------------------------------------------------------------------------------------------------
+//Make CSS style using material-UI for Buttons(Also I used my style.css for styling these buttons)
 const myStyle = makeStyles({
-  //Css codes
+  //CSS class
   btn: {
     width: "60px",
     height: "60px",
@@ -13,12 +15,20 @@ const myStyle = makeStyles({
     fontSize: "80px",
   },
 });
-
+//---------------------------------------------------------------------------------------------------------------------
+//SFC component
 const Btn = (props) => {
+  //My style
+  const classes = myStyle();
+
+  /*responsive-css-material-ui
+   *For more information : https://www.npmjs.com/package/responsive-css-material-ui
+   */
   var lg = { width: "100px", height: "100px" };
   var md = { width: "80px", height: "80px" };
   var sm = { width: "70px", height: "70px" };
-  const classes = myStyle();
+
+  //Return component
   return (
     <ResponsiveCssMaterialUi sm={sm} md={md} lg={lg}>
       <Button
