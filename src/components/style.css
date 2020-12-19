@@ -1,54 +1,114 @@
-body{
-    background-color: #1A237E;
+body {
+  background-color: #1a237e;
 }
 
 .Header {
-    color: rgb(255, 255, 255) !important;
-    margin-top: 20% !important;
-    margin-bottom: 10% !important;
-    text-align: center !important;
+  color: rgb(255, 255, 255) !important;
+  margin-top: 20% !important;
+  margin-bottom: 10% !important;
+  text-align: center !important;
+  font-size: 60px !important;
 }
 
-.container{
-    text-align: center !important;
-    width:100%;
-    background-color: #1A237E;
+.container {
+  text-align: center !important;
+  width: 100%;
+  background-color: #1a237e;
 }
 
-.row{
-    margin: 5px;
+.row {
+  margin: 5px;
 }
 
-.deleteBtn{
-    width:58%;
+.deleteBtn {
+  width: 58%;
 }
 
-.status{
-   color: white;
-   width:58%;
-   margin:auto;
-   border-radius: 5px;
-   padding: 20px 0 20px 0;
-   margin-bottom: 20px; 
-}
-.playStatus{
-    background-color :#1565C0;
-    -webkit-box-shadow: 0px 20px 0px -10px #FFFFFF, 0px -20px 0px -10px #FFFFFF, 20px 0px 0px -10px #FFFFFF, -20px 0px 0px -10px #FFFFFF, 4px 5px 20px 8px rgba(70,149,255,0.81); 
-    box-shadow: 0px 20px 0px -10px #FFFFFF, 0px -20px 0px -10px #FFFFFF, 20px 0px 0px -10px #FFFFFF, -20px 0px 0px -10px #FFFFFF, 4px 5px 20px 8px rgba(70,149,255,0.81);
-   
+.status {
+  color: white;
+  width: 58%;
+  margin: auto;
+  border-radius: 5px;
+  padding: 20px 0 20px 0;
+  margin-bottom: 20px;
 }
 
-.winStatus{
-    background-color :#43A047;
-    -webkit-box-shadow: 0px 20px 0px -10px #FFFFFF, 0px -20px 0px -10px #FFFFFF, 20px 0px 0px -10px #FFFFFF, -20px 0px 0px -10px #FFFFFF, 4px 5px 20px 8px rgba(70,149,255,0.81); 
-    box-shadow: 0px 20px 0px -10px #FFFFFF, 0px -20px 0px -10px #FFFFFF, 20px 0px 0px -10px #FFFFFF, -20px 0px 0px -10px #FFFFFF, 4px 5px 20px 8px #43A047;
-   
- }
+.typography {
+  font-size: 20px !important;
+}
 
- .tieStatus{
-    background-color :#f44336;
-    -webkit-box-shadow: 0px 20px 0px -10px #FFFFFF, 0px -20px 0px -10px #FFFFFF, 20px 0px 0px -10px #FFFFFF, -20px 0px 0px -10px #FFFFFF, 4px 5px 20px 8px rgba(70,149,255,0.81); 
-    box-shadow: 0px 20px 0px -10px #FFFFFF, 0px -20px 0px -10px #FFFFFF, 20px 0px 0px -10px #FFFFFF, -20px 0px 0px -10px #FFFFFF, 4px 5px 20px 8px #f44336;
-   
- }
+@media screen and (max-width: 1280px) {
+  .deleteBtn {
+    width: 48%;
+  }
+  .Header {
+    font-size: 50px !important;
+  }
 
+  .status {
+    width: 48%;
+  }
+
+  .typography {
+    font-size: 18px !important;
+  }
+}
+
+@media screen and (max-width: 959px) {
+  .deleteBtn {
+    width: 42%;
+  }
+  .Header {
+    font-size: 40px !important;
+  }
+
+  .status {
+    width: 38%;
+  }
+  .typography {
+    font-size: 15px !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .deleteBtn {
+    width: 210px;
+  }
+  .Header {
+    font-size: 40px !important;
+  }
+
+  .status {
+    width: 210px;
+  }
+}
+
+.playStatus {
+  background-color: #1565c0;
+  -webkit-box-shadow: 0px 20px 0px -10px #ffffff, 0px -20px 0px -10px #ffffff,
+    20px 0px 0px -10px #ffffff, -20px 0px 0px -10px #ffffff,
+    4px 5px 20px 8px rgba(70, 149, 255, 0.81);
+  box-shadow: 0px 20px 0px -10px #ffffff, 0px -20px 0px -10px #ffffff,
+    20px 0px 0px -10px #ffffff, -20px 0px 0px -10px #ffffff,
+    4px 5px 20px 8px rgba(70, 149, 255, 0.81);
+}
+
+.winStatus {
+  background-color: #43a047;
+  -webkit-box-shadow: 0px 20px 0px -10px #ffffff, 0px -20px 0px -10px #ffffff,
+    20px 0px 0px -10px #ffffff, -20px 0px 0px -10px #ffffff,
+    4px 5px 20px 8px rgba(70, 149, 255, 0.81);
+  box-shadow: 0px 20px 0px -10px #ffffff, 0px -20px 0px -10px #ffffff,
+    20px 0px 0px -10px #ffffff, -20px 0px 0px -10px #ffffff,
+    4px 5px 20px 8px #43a047;
+}
+
+.tieStatus {
+  background-color: #f44336;
+  -webkit-box-shadow: 0px 20px 0px -10px #ffffff, 0px -20px 0px -10px #ffffff,
+    20px 0px 0px -10px #ffffff, -20px 0px 0px -10px #ffffff,
+    4px 5px 20px 8px rgba(70, 149, 255, 0.81);
+  box-shadow: 0px 20px 0px -10px #ffffff, 0px -20px 0px -10px #ffffff,
+    20px 0px 0px -10px #ffffff, -20px 0px 0px -10px #ffffff,
+    4px 5px 20px 8px #f44336;
+}
